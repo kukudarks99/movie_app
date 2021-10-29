@@ -1,11 +1,19 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import { HashRouter, Route } from "react-router-dom"
+import Home from "./routes/Home"
+import About from "./routes/About"
+import Navigation from "./components/Nevigation";
+import Detail from "./routes/Detail";
 
-
-class App extends Component{
-  render(){
-    return <h1>Hello</h1>
-  }
+function App(){
+  return (
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/movie/:id" component={Detail} />
+    </HashRouter>
+  );
 }
 
 export default App;
